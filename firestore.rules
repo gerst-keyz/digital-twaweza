@@ -1,0 +1,54 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Global Default-Deny Safety Net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Authentication Checks
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    // Owner validation
+    function isOwner(groupId) {
+      return isSignedIn() && request.auth.uid == groupId;
+    }
+
+    // Secure Document ID patterns to block poisoning
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    // Saccos Group-based routing rules
+    match /saccos_groups/{groupId} {
+      allow read, write: if isOwner(groupId);
+
+      match /members/{memberId} {
+        allow read, write: if isOwner(groupId) && isValidId(memberId);
+      }
+
+      match /contributions/{contributionId} {
+        allow read, write: if isOwner(groupId) && isValidId(contributionId);
+      }
+
+      match /loans/{loanId} {
+        allow read, write: if isOwner(groupId) && isValidId(loanId);
+      }
+
+      match /expenses/{expenseId} {
+        allow read, write: if isOwner(groupId) && isValidId(expenseId);
+      }
+
+      match /auditLogs/{logId} {
+        allow read, write: if isOwner(groupId) && isValidId(logId);
+      }
+
+      match /internalUsers/{userId} {
+        allow read, write: if isOwner(groupId) && isValidId(userId);
+      }
+    }
+  }
+}

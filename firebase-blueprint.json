@@ -1,0 +1,133 @@
+{
+  "entities": {
+    "Member": {
+      "title": "Member",
+      "description": "Profile information of a SACCOS group member",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "memberNo": { "type": "string" },
+        "phone": { "type": "string" },
+        "email": { "type": "string" },
+        "active": { "type": "boolean" },
+        "created": { "type": "string" },
+        "driveFileId": { "type": "string" },
+        "driveFileName": { "type": "string" }
+      },
+      "required": ["id", "name", "memberNo", "phone", "email", "active", "created"]
+    },
+    "Contribution": {
+      "title": "Contribution",
+      "description": "Record of a contribution transaction made by a member",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "memberId": { "type": "string" },
+        "amount": { "type": "number" },
+        "date": { "type": "string" },
+        "type": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["id", "memberId", "amount", "date", "type", "note"]
+    },
+    "Loan": {
+      "title": "Loan",
+      "description": "Details of a loan issued to a member",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "memberId": { "type": "string" },
+        "amount": { "type": "number" },
+        "interest": { "type": "number" },
+        "totalPay": { "type": "number" },
+        "paidAmount": { "type": "number" },
+        "duration": { "type": "number" },
+        "date": { "type": "string" },
+        "status": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["id", "memberId", "amount", "interest", "totalPay", "paidAmount", "duration", "date", "status", "note"]
+    },
+    "Expense": {
+      "title": "Expense",
+      "description": "Details of a SACCOS cash expense",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "description": { "type": "string" },
+        "amount": { "type": "number" },
+        "date": { "type": "string" },
+        "category": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["id", "description", "amount", "date", "category", "note"]
+    },
+    "AuditLog": {
+      "title": "AuditLog",
+      "description": "System activity/audit trail log entry",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "user": { "type": "string" },
+        "action": { "type": "string" },
+        "details": { "type": "string" }
+      },
+      "required": ["id", "timestamp", "user", "action", "details"]
+    },
+    "SaccosConfig": {
+      "title": "SaccosConfig",
+      "description": "Dynamic configuration settings including full constitution",
+      "type": "object",
+      "properties": {
+        "constitution": { "type": "string" }
+      },
+      "required": ["constitution"]
+    },
+    "InternalUser": {
+      "title": "InternalUser",
+      "description": "Standard login credentials for offline staff/admins",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "username": { "type": "string" },
+        "passwordHash": { "type": "string" },
+        "fullName": { "type": "string" },
+        "created": { "type": "string" },
+        "role": { "type": "string" }
+      },
+      "required": ["id", "username", "passwordHash", "fullName", "created", "role"]
+    }
+  },
+  "firestore": {
+    "/saccos_groups/{groupId}": {
+      "schema": "SaccosConfig",
+      "description": "Main document for metadata"
+    },
+    "/saccos_groups/{groupId}/members/{memberId}": {
+      "schema": "Member",
+      "description": "Subcollection storing members details"
+    },
+    "/saccos_groups/{groupId}/contributions/{contributionId}": {
+      "schema": "Contribution",
+      "description": "Subcollection storing contribution transactions"
+    },
+    "/saccos_groups/{groupId}/loans/{loanId}": {
+      "schema": "Loan",
+      "description": "Subcollection storing loans details"
+    },
+    "/saccos_groups/{groupId}/expenses/{expenseId}": {
+      "schema": "Expense",
+      "description": "Subcollection storing individual expenses records"
+    },
+    "/saccos_groups/{groupId}/auditLogs/{logId}": {
+      "schema": "AuditLog",
+      "description": "Subcollection logging system activity for compliance reporting"
+    },
+    "/saccos_groups/{groupId}/internalUsers/{userId}": {
+      "schema": "InternalUser",
+      "description": "Subcollection of internal operators/staff logins"
+    }
+  }
+}

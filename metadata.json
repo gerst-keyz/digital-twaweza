@@ -1,0 +1,6 @@
+{
+  "name": "Twaweza Digital",
+  "description": "Mfumo wa kisasa wa kusimamia fedha, mikopo, michango na matumizi ya kikundi.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
