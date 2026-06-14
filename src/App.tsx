@@ -83,6 +83,40 @@ export default function App() {
           localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(parsed));
         }
 
+        // Kusasisha namba mpya za simu za wanachama kulingana na data sahihi zilizotolewa
+        const phoneUpdates: { [key: string]: string } = {
+          'credo mapunda': '0757749594',
+          'frolian mapunda': '0768561197',
+          'fulko nkolela': '0744093850',
+          'gaston mapunda': '0762012479',
+          'glory nkolela': '0746313941',
+          'innocent mapunda': '0763883581',
+          'isack mapunda': '0767409635',
+          'joyce mapunda': '0746137804',
+          'maria nkolela': '0741962702',
+          'nestory mapunda': '0750256765',
+          'rozina mapunda': '0757279482',
+          'rozina mapund': '0757279482',
+          'taslo nkolela': '0756502085',
+          'agatha mponera': '0625806227'
+        };
+
+        let didUpdatePhones = false;
+        if (parsed.members) {
+          parsed.members = parsed.members.map((m: any) => {
+            const nameLower = m.name.toLowerCase().trim();
+            const targetPhone = phoneUpdates[nameLower];
+            if (targetPhone && m.phone !== targetPhone) {
+              didUpdatePhones = true;
+              return { ...m, phone: targetPhone };
+            }
+            return m;
+          });
+          if (didUpdatePhones) {
+            localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(parsed));
+          }
+        }
+
         // Hakikisha michango yote (isipokuwa Marejesho ya Mkopo) inawekwa aina ya "Ada ya Uanachama"
         const needsContribUpdate = parsed.contributions && parsed.contributions.some((c: any) => c.type !== 'Ada ya Uanachama' && c.type !== 'Marejesho ya Mkopo');
         if (needsContribUpdate) {
@@ -280,13 +314,41 @@ export default function App() {
     const setupListener = (colName: string, stateKey: keyof SaccosData) => {
       const colRef = collection(db, 'saccos_groups', groupId, colName);
       const unsub = onSnapshot(colRef, (snapshot) => {
-        const items: any[] = [];
+        let items: any[] = [];
         snapshot.forEach((snapDoc) => {
           items.push(snapDoc.data());
         });
         
         // Only trigger update if snapshots are not empty from server
         if (items.length > 0) {
+          // Sahihiisha namba za simu za wanachama pia toka kwenye kijito cha Firestore
+          if (stateKey === 'members') {
+            const upMap: { [key: string]: string } = {
+              'credo mapunda': '0757749594',
+              'frolian mapunda': '0768561197',
+              'fulko nkolela': '0744093850',
+              'gaston mapunda': '0762012479',
+              'glory nkolela': '0746313941',
+              'innocent mapunda': '0763883581',
+              'isack mapunda': '0767409635',
+              'joyce mapunda': '0746137804',
+              'maria nkolela': '0741962702',
+              'nestory mapunda': '0750256765',
+              'rozina mapunda': '0757279482',
+              'rozina mapund': '0757279482',
+              'taslo nkolela': '0756502085',
+              'agatha mponera': '0625806227'
+            };
+            items = items.map((m) => {
+              const nameKey = (m.name || '').toLowerCase().trim();
+              const reqPhone = upMap[nameKey];
+              if (reqPhone && m.phone !== reqPhone) {
+                return { ...m, phone: reqPhone };
+              }
+              return m;
+            });
+          }
+
           isApplyingSnapshotRef.current = true;
           setData(prev => {
             // Check changes to avoid infinite loop

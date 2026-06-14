@@ -14,7 +14,7 @@ export function getDefaultSaccosData(): SaccosData {
       id: 'm_credo',
       name: 'Credo mapunda',
       memberNo: 'Mwanachama',
-      phone: '0700 000 001',
+      phone: '0757749594',
       email: 'credo.mapunda@example.com',
       active: true,
       created: '2025-10-31'
@@ -23,7 +23,7 @@ export function getDefaultSaccosData(): SaccosData {
       id: 'm_frolian',
       name: 'Frolian mapunda',
       memberNo: 'Mwanachama',
-      phone: '0700 000 002',
+      phone: '0768561197',
       email: 'frolian.mapunda@example.com',
       active: true,
       created: '2025-10-31'
@@ -32,7 +32,7 @@ export function getDefaultSaccosData(): SaccosData {
       id: 'm_fulko',
       name: 'Fulko nkolela',
       memberNo: 'Mwanachama',
-      phone: '0700 000 003',
+      phone: '0744093850',
       email: 'fulko.nkolela@example.com',
       active: true,
       created: '2025-10-31'
@@ -41,7 +41,7 @@ export function getDefaultSaccosData(): SaccosData {
       id: 'm_gaston',
       name: 'Gaston mapunda',
       memberNo: 'Katibu',
-      phone: '0754 123 456',
+      phone: '0762012479',
       email: 'gastonmapunda24@gmail.com',
       active: true,
       created: '2025-10-31'
@@ -50,7 +50,7 @@ export function getDefaultSaccosData(): SaccosData {
       id: 'm_glory',
       name: 'Glory nkolela',
       memberNo: 'Mhasibu',
-      phone: '0700 000 004',
+      phone: '0746313941',
       email: 'glory.nkolela@example.com',
       active: true,
       created: '2025-10-31'
@@ -59,7 +59,7 @@ export function getDefaultSaccosData(): SaccosData {
       id: 'm_innocent',
       name: 'Innocent mapunda',
       memberNo: 'Mwanachama',
-      phone: '0700 000 005',
+      phone: '0763883581',
       email: 'innocent.mapunda@example.com',
       active: true,
       created: '2025-11-30'
@@ -68,7 +68,7 @@ export function getDefaultSaccosData(): SaccosData {
       id: 'm_isack',
       name: 'Isack mapunda',
       memberNo: 'Mwanachama',
-      phone: '0700 000 006',
+      phone: '0767409635',
       email: 'isack.mapunda@example.com',
       active: true,
       created: '2025-11-30'
@@ -77,7 +77,7 @@ export function getDefaultSaccosData(): SaccosData {
       id: 'm_joyce',
       name: 'Joyce mapunda',
       memberNo: 'Mwanachama',
-      phone: '0700 000 007',
+      phone: '0746137804',
       email: 'joyce.mapunda@example.com',
       active: true,
       created: '2025-11-30'
@@ -86,7 +86,7 @@ export function getDefaultSaccosData(): SaccosData {
       id: 'm_maria',
       name: 'Maria nkolela',
       memberNo: 'Mwanachama',
-      phone: '0700 000 008',
+      phone: '0741962702',
       email: 'maria.nkolela@example.com',
       active: true,
       created: '2025-11-30'
@@ -95,7 +95,7 @@ export function getDefaultSaccosData(): SaccosData {
       id: 'm_nestory',
       name: 'Nestory mapunda',
       memberNo: 'Mwanachama',
-      phone: '0700 000 009',
+      phone: '0750256765',
       email: 'nestory.mapunda@example.com',
       active: true,
       created: '2025-10-31'
@@ -104,7 +104,7 @@ export function getDefaultSaccosData(): SaccosData {
       id: 'm_rozina',
       name: 'Rozina mapunda',
       memberNo: 'Mwenyekiti',
-      phone: '0700 000 010',
+      phone: '0757279482',
       email: 'rozina.mapunda@example.com',
       active: true,
       created: '2025-10-31'
@@ -113,7 +113,7 @@ export function getDefaultSaccosData(): SaccosData {
       id: 'm_taslo',
       name: 'Taslo nkolela',
       memberNo: 'Mwanachama',
-      phone: '0700 000 011',
+      phone: '0756502085',
       email: 'taslo.nkolela@example.com',
       active: true,
       created: '2025-10-31'
