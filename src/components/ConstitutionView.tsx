@@ -25,7 +25,7 @@ export default function ConstitutionView({
         <div className="flex items-center justify-between border-b border-slate-700 pb-5">
           <div className="flex items-center gap-2.5">
             <BookOpen className="w-6 h-6 text-emerald-400" />
-            <h2 className="text-xl font-black text-white">Katiba ya Kikundi / SACCOS PLUS</h2>
+            <h2 className="text-xl font-black text-white">Katiba ya Kikundi / TWAWEZA FAMILY</h2>
           </div>
           
           {currentUser && (

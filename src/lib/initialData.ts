@@ -245,16 +245,14 @@ export function getDefaultSaccosData(): SaccosData {
         note: 'vocha'
       }
     ],
-    constitution: `KATIBA YA KIKUNDI CHA TWAWEZA DIGITAL
+    constitution: ` KATIBA YA KIKUNDI CHA TWAWEZA FAMILY
 
 1.0 UTANGULIZI
-Kikundi hiki kinaitwa "TWAWEZA DIGITAL" na kinaundwa kwa lengo la kuleta maendeleo ya kiuchumi na kijamii kwa kukuza utamaduni wa kuweka akiba na kukopesha kwa kila mwanachama wake.
+Kikundi hiki kinaitwa "TWAWEZA FAMILY" na kinaundwa kwa lengo kusaidiana katika shida na raha pia kuleta maendeleo ya kiuchumi na kijamii kwa kukuza utamaduni wa kuweka akiba na kukopesha kwa kila mwanachama wake.
 
 2.0 MALENGO
-- Kukuza utamaduni dhabiti wa kuweka akiba na hisa miongoni mwa wanachama wetu.
-- Kutoa mikopo kwa wanachama kwa riba nafuu na yenye tija kuwezesha biashara.
-- Kuwekeza kwa pamoja katika fursa yenye faida na haraka kwa manufaa ya wote.
-- Kusaidiana katika dharura na shida za kijamii kupitia Mfuko Maalum wa Dharura.
+-kusaidiana katika shida na raha
+-kutoa mikopo yenye riba nafuu kwa wanachama wake
 
 3.0 UANACHAMA
 - Kila mwanachama anapaswa kupitia mchakato rasmi wa kujiunga na kuidhinishwa na Kamati Kuu.
@@ -301,7 +299,7 @@ Kikundi hiki kinaitwa "TWAWEZA DIGITAL" na kinaundwa kwa lengo la kuleta maendel
         timestamp: now.toISOString(),
         user: 'Mfumo',
         action: 'Kuanzishwa kwa Mfumo',
-        details: 'Mfumo wa TWAWEZA DIGITAL umeanza kufanya kazi rasmi na data safi za mwanachama na michango kupakiwa.'
+        details: 'Mfumo wa TWAWEZA FAMILY umeanza kufanya kazi rasmi na data safi za mwanachama na michango kupakiwa.'
       }
     ]
   };

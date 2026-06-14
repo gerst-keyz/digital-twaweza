@@ -27,7 +27,7 @@ export const syncSaccosToGoogleSheets = async (
       },
       body: JSON.stringify({
         properties: {
-          title: `TWAWEZA DIGITAL — SACCOS Records (${new Date().toLocaleDateString('sw-TZ')})`
+          title: `TWAWEZA FAMILY — SACCOS Records (${new Date().toLocaleDateString('sw-TZ')})`
         },
         sheets: [
           { properties: { title: 'Maelezo Kuu' } },
@@ -64,7 +64,7 @@ export const syncSaccosToGoogleSheets = async (
   const totalExpenses = data.expenses.reduce((sum, e) => sum + e.amount, 0);
   
   const summaryValues = [
-    ['TAARIFA KUU YA KIKUNDI — TWAWEZA DIGITAL'],
+    ['TAARIFA KUU YA KIKUNDI — TWAWEZA FAMILY'],
     ['Kigezo', 'Thamani', 'Maelezo'],
     ['Jumla ya Wanachama', totalMembers, 'Wanachama waliosajiliwa kwenye mfumo'],
     ['Wanachama Hai', activeMembers, 'Wanachama wenye sifa ya kushiriki sasa hivi'],

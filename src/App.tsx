@@ -117,6 +117,14 @@ export default function App() {
           }
         }
 
+        // Hakikisha Katiba inasawazishwa kwenda TWAWEZA FAMILY kama bado inatumia ya zamani au haina maandishi
+        const oldCont = parsed.constitution || '';
+        if (!oldCont || oldCont.includes('TWAWEZA DIGITAL') || oldCont.includes('Twaweza Digital') || oldCont.trim() === '') {
+          const defaults = getDefaultSaccosData();
+          parsed.constitution = defaults.constitution;
+          localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(parsed));
+        }
+
         // Hakikisha michango yote (isipokuwa Marejesho ya Mkopo) inawekwa aina ya "Ada ya Uanachama"
         const needsContribUpdate = parsed.contributions && parsed.contributions.some((c: any) => c.type !== 'Ada ya Uanachama' && c.type !== 'Marejesho ya Mkopo');
         if (needsContribUpdate) {
@@ -1331,7 +1339,7 @@ export default function App() {
       {/* Page Footer */}
       <footer className="fixed bottom-0 left-0 right-0 z-40 bg-slate-950/95 border-t border-slate-900/80 backdrop-blur-md py-4 text-center text-xs text-slate-600 space-y-1 no-print">
         <div>
-          <strong className="text-slate-500">TWAWEZA DIGITAL &copy; 2026</strong> — Mfumo wa kisasa wa Kusimamia Kikundi Offline na Online.
+          <strong className="text-slate-500">TWAWEZA FAMILY &copy; 2026</strong> — Mfumo wa kisasa wa Kusimamia Kikundi Offline na Online.
         </div>
         <div className="text-xs text-slate-400 font-semibold">
           Mtengenezaji wa mfumo huu ni <span className="text-emerald-400 font-bold">Gaston Mapunda</span>
