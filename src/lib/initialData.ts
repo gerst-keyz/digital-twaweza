@@ -193,6 +193,7 @@ export function getDefaultSaccosData(): SaccosData {
       { id: 'c_40', memberId: 'm_nestory', amount: 5000, date: '2025-10-31', type: 'Hisa', note: '' },
       { id: 'c_41', memberId: 'm_nestory', amount: 5000, date: '2025-11-30', type: 'Ada ya Uanachama', note: '' },
       { id: 'c_42', memberId: 'm_nestory', amount: 5000, date: '2025-12-31', type: 'Ada ya Uanachama', note: '' },
+      { id: 'c_nestory_today', memberId: 'm_nestory', amount: 25000, date: '2026-06-15', type: 'Ada ya Uanachama', note: '' },
       
       // row 43-47: Rozina mapunda
       { id: 'c_43', memberId: 'm_rozina', amount: 5000, date: '2025-10-31', type: 'Hisa', note: '' },

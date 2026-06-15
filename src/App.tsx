@@ -163,6 +163,18 @@ export default function App() {
             });
             updatedContribs = true;
           }
+          const hasNestoryToday = parsed.contributions.some((c: any) => c.id === 'c_nestory_today' || (c.memberId === 'm_nestory' && c.amount === 25000 && c.date === '2026-06-15'));
+          if (!hasNestoryToday) {
+            parsed.contributions.push({
+              id: 'c_nestory_today',
+              memberId: 'm_nestory',
+              amount: 25000,
+              date: '2026-06-15',
+              type: 'Ada ya Uanachama',
+              note: ''
+            });
+            updatedContribs = true;
+          }
           if (updatedContribs) {
             localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(parsed));
           }
@@ -355,6 +367,43 @@ export default function App() {
               }
               return m;
             });
+          }
+
+          if (stateKey === 'contributions') {
+            const hasRozinaPay1 = items.some((c: any) => c.id === 'c_rozina_pay1' || (c.memberId === 'm_rozina' && c.amount === 160000 && c.date === '2026-05-04'));
+            const hasRozinaPay2 = items.some((c: any) => c.id === 'c_rozina_pay2' || (c.memberId === 'm_rozina' && c.amount === 12500 && c.date === '2026-05-11'));
+            const hasNestoryToday = items.some((c: any) => c.id === 'c_nestory_today' || (c.memberId === 'm_nestory' && c.amount === 25000 && c.date === '2026-06-15'));
+            
+            if (!hasRozinaPay1) {
+              items.push({
+                id: 'c_rozina_pay1',
+                memberId: 'm_rozina',
+                amount: 160000,
+                date: '2026-05-04',
+                type: 'Marejesho ya Mkopo',
+                note: 'Marejesho ya kwanza ya mkopo'
+              });
+            }
+            if (!hasRozinaPay2) {
+              items.push({
+                id: 'c_rozina_pay2',
+                memberId: 'm_rozina',
+                amount: 12500,
+                date: '2026-05-11',
+                type: 'Marejesho ya Mkopo',
+                note: 'Marejesho ya pili na kumaliza mkopo'
+              });
+            }
+            if (!hasNestoryToday) {
+              items.push({
+                id: 'c_nestory_today',
+                memberId: 'm_nestory',
+                amount: 25000,
+                date: '2026-06-15',
+                type: 'Ada ya Uanachama',
+                note: ''
+              });
+            }
           }
 
           isApplyingSnapshotRef.current = true;
